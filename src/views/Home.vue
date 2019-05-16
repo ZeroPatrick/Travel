@@ -1,7 +1,7 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <div class="home">home</div>
+    <router-link to="/list" class="home">列表页面</router-link>
   </div>
 </template>
 
@@ -12,7 +12,13 @@ import HelloWorld from '@/components/HelloWorld.vue'
 export default {
   name: 'home',
   components: {
-    HelloWorld
+
   }
 }
 </script>
+
+<style>
+  .home{
+    font-size: 50px;
+  }
+</style>
