@@ -1,14 +1,10 @@
 <template>
   <div>
-    <div class="home">home</div>
-    <router-link to="/list" class="home">列表页面</router-link>
+   hello world
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
   name: 'home',
   components: {
@@ -18,7 +14,5 @@ export default {
 </script>
 
 <style>
-  .home{
-    font-size: 50px;
-  }
+
 </style>
