@@ -1,9 +1,9 @@
 <template>
     <div class="icons">
         <swiper>
-            <swiper-slide>
+            <swiper-slide v-for="(page, index) of pages" :key="index">
                 <div class="icon"
-                     v-for="item of iconList"
+                     v-for="item of page"
                      :key="item.id"
                 >
                     <div class="icon-img">
@@ -25,9 +25,51 @@
                     id: '0001',
                     imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/' +
                         'f3dd6c383aeb3b02.png',
-                    desc: '景点门票',
+                    desc: '景点门票景点门票景点门票',
                 },{
                     id: '0002',
+                    imgUrl: 'http://mp-piao-admincp.qunarzz.com/' +
+                        'mp_piao_admin_mp_piao_admin/admin/20195/' +
+                        '35d83bb968d80d54926f30cfb92cb6ff.png',
+                    desc: '每周好货',
+                },{
+                    id: '0003',
+                    imgUrl: 'http://mp-piao-admincp.qunarzz.com/' +
+                        'mp_piao_admin_mp_piao_admin/admin/20195/' +
+                        '35d83bb968d80d54926f30cfb92cb6ff.png',
+                    desc: '每周好货',
+                },{
+                    id: '0004',
+                    imgUrl: 'http://mp-piao-admincp.qunarzz.com/' +
+                        'mp_piao_admin_mp_piao_admin/admin/20195/' +
+                        '35d83bb968d80d54926f30cfb92cb6ff.png',
+                    desc: '每周好货',
+                },{
+                    id: '0005',
+                    imgUrl: 'http://mp-piao-admincp.qunarzz.com/' +
+                        'mp_piao_admin_mp_piao_admin/admin/20195/' +
+                        '35d83bb968d80d54926f30cfb92cb6ff.png',
+                    desc: '每周好货',
+                },{
+                    id: '0006',
+                    imgUrl: 'http://mp-piao-admincp.qunarzz.com/' +
+                        'mp_piao_admin_mp_piao_admin/admin/20195/' +
+                        '35d83bb968d80d54926f30cfb92cb6ff.png',
+                    desc: '每周好货',
+                },{
+                    id: '0007',
+                    imgUrl: 'http://mp-piao-admincp.qunarzz.com/' +
+                        'mp_piao_admin_mp_piao_admin/admin/20195/' +
+                        '35d83bb968d80d54926f30cfb92cb6ff.png',
+                    desc: '每周好货',
+                },{
+                    id: '0008',
+                    imgUrl: 'http://mp-piao-admincp.qunarzz.com/' +
+                        'mp_piao_admin_mp_piao_admin/admin/20195/' +
+                        '35d83bb968d80d54926f30cfb92cb6ff.png',
+                    desc: '每周好货',
+                },{
+                    id: '0009',
                     imgUrl: 'http://mp-piao-admincp.qunarzz.com/' +
                         'mp_piao_admin_mp_piao_admin/admin/20195/' +
                         '35d83bb968d80d54926f30cfb92cb6ff.png',
@@ -36,14 +78,24 @@
             }
         },
         computed: {
-            pages() {
+            pages () {
                 const pages = []
+                this.iconList.forEach((item, index) => {
+                    const page = Math.floor(index / 8)
+                    if (!pages[page]) {
+                        pages[page] = []
+                    }
+                    pages[page].push(item)
+                })
+                return pages
             }
         }
     }
 </script>
 
 <style lang="stylus" scoped>
+    @import '~@/assets/styles/variables.styl'
+    @import '~@/assets/styles/mixins.styl'
     .icons >>> .swiper-container
         height 0
         padding-bottom 50%
@@ -74,4 +126,5 @@
             height .44rem
             line-height .44rem
             color $darkTextColor
+            ellipsis()
 </style>
